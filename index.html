@@ -199,58 +199,73 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       </div>
     </footer>
     <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    // Function to validate phone number
-    function isValidPhoneNumber(phoneNumber) {
-      const phoneRegex = /^\d{10}$/; // Regex for a 10-digit number
-      return phoneRegex.test(phoneNumber);
-    }
-
-    // Add event listener for form submission
-    document.getElementById("registrationForm").addEventListener("submit", function (event) {
-      event.preventDefault(); // Prevent default form submission
-
-      // Get form data
-      const name = document.getElementById("name").value;
-      const city = document.getElementById("city").value;
-      const phone = document.getElementById("phone").value;
-
-      // Validate phone number
-      if (!isValidPhoneNumber(phone)) {
-        alert("Please enter a valid 10-digit phone number");
-        return; // Stop form submission
-      }
-
-      // Create and insert the iframe
-      const iframe = document.createElement('iframe');
-      iframe.src = "https://appmontize.gotrackier.com/pixel?adid=669f6bd91b63f759c03c85d8";
-      iframe.style.display = 'none';
-      iframe.width = '1';
-      iframe.height = '1';
-      document.body.appendChild(iframe);
-
-      // Send form data to server
-      fetch("https://apiswiggy.growwpaisa.com/submit", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ name, city, phone }),
-      })
-        .then((response) => response.text())
-        .then((data) => {
-          // Show server response
-          // Redirect to Swiggy with UTM parameters after 1 second
-          setTimeout(() => {
-            window.location.href = "https://ride.swiggy.com/?utm_source=Appmontize1&utm_medium=Appmontize1&utm_campaign=Appmontize1&utm_id=Appmontize1&utm_term=Appmontize1";
-          }, 1000); // 1000 milliseconds = 1 second
-        })
-        .catch((error) => {
-          console.error("Error:", error);
-        });
-    });
-  });
-</script>
+      document.addEventListener("DOMContentLoaded", function () {
+          // Function to get URL parameter by name
+          function getParameterByName(name) {
+              name = name.replace(/[\[\]]/g, "\\$&");
+              var url = window.location.href;
+              var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+                  results = regex.exec(url);
+              if (!results) return null;
+              if (!results[2]) return '';
+              return decodeURIComponent(results[2].replace(/\+/g, " "));
+          }
+  
+          // Capture UTM parameters
+          var utmSource = getParameterByName('source');
+          var utmMedium = getParameterByName('utm_medium');
+          var utmCampaign = getParameterByName('utm_campaign');
+  
+          // Function to validate phone number
+          function isValidPhoneNumber(phoneNumber) {
+              const phoneRegex = /^\d{10}$/; // Regex for a 10-digit number
+              return phoneRegex.test(phoneNumber);
+          }
+  
+          // Add event listener for form submission
+          document.getElementById("registrationForm").addEventListener("submit", function (event) {
+              event.preventDefault(); // Prevent default form submission
+  
+              // Get form data
+              const name = document.getElementById("name").value;
+              const city = document.getElementById("city").value;
+              const phone = document.getElementById("phone").value;
+  
+              // Validate phone number
+              if (!isValidPhoneNumber(phone)) {
+                  alert("Please enter a valid 10-digit phone number");
+                  return; // Stop form submission
+              }
+  
+              // Send form data and UTM parameters to the server
+              fetch("https://apiswiggy.growwpaisa.com/submit", {
+                  method: "POST",
+                  headers: {
+                      "Content-Type": "application/json",
+                  },
+                  body: JSON.stringify({ 
+                      name, 
+                      city, 
+                      phone,
+                      source: utmSource,
+  
+                  }),
+              })
+              .then((response) => response.text())
+              .then((data) => {
+                  // Show server response
+                  console.log("Response:", data);
+                  // Redirect to Swiggy with UTM parameters after 1 second
+                  setTimeout(() => {
+                      window.location.href = "https://ride.swiggy.com/?utm_source=" + utmSource + "&utm_medium=" + utmMedium + "&utm_campaign=" + utmCampaign;
+                  }, 1000); // 1000 milliseconds = 1 second
+              })
+              .catch((error) => {
+                  console.error("Error:", error);
+              });
+          });
+      });
+      </script>
 
   </body>
 </html>
