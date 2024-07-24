@@ -202,7 +202,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   document.addEventListener("DOMContentLoaded", function () {
     // Function to validate phone number
     function isValidPhoneNumber(phoneNumber) {
-      const phoneRegex = /^[6-9]\d{9}$/; // Regex for a 10-digit Indian phone number starting with 6-9
+      const phoneRegex = /^\d{10}$/; // Regex for a 10-digit number
       return phoneRegex.test(phoneNumber);
     }
 
@@ -217,7 +217,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
       // Validate phone number
       if (!isValidPhoneNumber(phone)) {
-        alert("Please enter a valid 10-digit phone number starting with 6, 7, 8, or 9.");
+        alert("Please enter a valid 10-digit phone number");
         return; // Stop form submission
       }
 
